@@ -10,16 +10,26 @@ class Secret
 
     def guess_letter(letter)
 
-        @secret_word.each do |c|
-            if c.is_equal(letter)
-                @guessed_letters.push(letter)
-                c.found_me()
-                return
+        if is_letter_in_secret(letter)
+            @secret_word.each do |c|
+                if c.is_equal(letter)
+                    @guessed_letters.push(letter)
+                    c.found_me()
+                    
+                end
             end
+        else 
+            @chances -= 1
+            @guessed_letters.push(letter)
         end
+    end
 
-        @chances -= 1
-
+    def is_letter_in_secret(letter)
+        word = []
+        @secret_word.each do |x|
+            word.push(x.value)
+        end
+        return word.include?(letter)
     end
 
     def print_me

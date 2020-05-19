@@ -5,8 +5,11 @@ require_relative 'load_file.rb'
 
 
 word = Secret.new(choose_word(read_dictionary))
+#word = Secret.new("matricide")
+p word.is_letter_in_secret('e')
 
 while (word.any_more_chances?) && (!word.found_all_letters)
+
     puts
     puts "Enter guess -- chances: #{word.chances} -- #{word.get_guessed_letters}"
     letter = gets.chomp
