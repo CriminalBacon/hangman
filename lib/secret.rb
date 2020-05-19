@@ -1,3 +1,4 @@
+
 class Secret
 
     attr_reader :secret_word, :guessed_letters, :chances
